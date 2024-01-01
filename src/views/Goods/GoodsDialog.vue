@@ -9,6 +9,7 @@
         :visible.sync="dialogVisible"
         :customerOptions="customerOptions"
         :businessPersonOptions="businessPersonOptions"
+        :apparatusOptions="apparatusOptions"
         width="70%"
         :before-close="resetForm"
     >
@@ -27,9 +28,21 @@
                 <span>{{ goodsForm.category }}</span>
             </el-form-item> -->
 
-            <!-- <el-form-item label="器材名称" prop="apparatus_name">
-                <el-input v-model="goodsForm.apparatus_name"></el-input>
-            </el-form-item> -->
+            <el-form-item label="器材名称" prop="apparatus_name">
+                <!-- <el-input v-model="goodsForm.apparatus_name"></el-input> -->
+                <el-select v-model="goodsForm.apparatus_name" 
+                filterable placeholder="请选择"
+                style="width: 100%;"
+                >
+                    <el-option
+                    v-for="item in apparatusOptions"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                    >
+                    </el-option>
+                </el-select>
+            </el-form-item>
             
             <el-form-item label="客户名" prop="customer_name">
                 <!-- <el-input v-model="goodsForm.customer_name"></el-input> -->
@@ -173,6 +186,12 @@
         }
       },
       businessPersonOptions:{
+        type:Array,
+        default:function(){
+          return [];
+        }
+      },
+      apparatusOptions:{
         type:Array,
         default:function(){
           return [];

@@ -554,6 +554,24 @@ router.get("/businessPersonnel", (req, res) => {
     })
 })
 
+// 获取器材表
+router.get("/apparatusList", (req, res) => {
+    const sql = "select apparatus_name from apparatus"
+    sqlFn(sql, null, result => {
+        if (result.length > 0) {
+            res.send({
+                status: 200,
+                result
+            })
+        } else {
+            res.send({
+                status: 500,
+                msg: "查找失败"
+            })
+        }
+    })
+})
+
 //修改密码
 router.post('/modifyPwd', (req, res) => {
     try {

@@ -27,6 +27,7 @@ const base = {
     maintenancePersonnel: '/api/maintenancePersonnel', //获取维护人员表
     customerList: '/api/customerList', //获取客户表
     businessPersonnel: '/api/businessPersonnel', //获取业务负责人表
+    apparatusList: '/api/apparatusList', //获取器材表
     modifyPwd: '/api/modifyPwd' //修改密码
 }
 

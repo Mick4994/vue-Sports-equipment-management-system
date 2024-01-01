@@ -53,7 +53,9 @@
     <!-- 添加弹窗 -->
     <GoodsDialog ref="dialog" 
     :title="title" :rowData="rowData" 
-    :customerOptions="customerOptions" :businessPersonOptions="businessPersonOptions"
+    :customerOptions="customerOptions" 
+    :businessPersonOptions="businessPersonOptions"
+    :apparatusOptions="apparatusOptions"
      @changePage="getPage(1)"/>
   </div>
 </template>
@@ -61,7 +63,8 @@
 <script>
 import MyPagination from '@/components/MyPagination.vue'
 import GoodsDialog from './GoodsDialog.vue'
-import { getGoodsList, getSearchList, delGoods, getCustomerList, getBusinessPersonnel } from '@/api/index.js'
+import { getGoodsList, getSearchList, delGoods, 
+  getCustomerList, getBusinessPersonnel,getApparatusList } from '@/api/index.js'
 
 const moment = require('moment');
 
@@ -83,7 +86,8 @@ export default {
       title:'添加记录',   //弹窗标题
       rowData:{},  // 整行数据
       customerOptions: [],
-      businessPersonOptions: []
+      businessPersonOptions: [],
+      apparatusOptions: []
     }
   },
   // 生命周期函数
@@ -91,6 +95,7 @@ export default {
     this.getGoodsList(1) //调用
     this.getCustomer();
     this.getBusinessPersonnelList();
+    this.getApparatus();
   },
   methods: {
     //切换分页后，还保持全选状态
@@ -259,6 +264,23 @@ export default {
               this.customerOptions.push({
                   value: res.result[i].customer_name,
                   label: res.result[i].customer_name
+                })
+            }
+          }
+          console.log('res', this.options);
+        } catch (error) {
+          console.log(error);
+        }
+    },
+    async getApparatus() {
+        try {
+          const res = await getApparatusList(null);
+          if(res.status == 200) {
+            // this.options = res.result;
+            for(var i=0; i < res.result.length; i++) {
+              this.apparatusOptions.push({
+                  value: res.result[i].apparatus_name,
+                  label: res.result[i].apparatus_name
                 })
             }
           }

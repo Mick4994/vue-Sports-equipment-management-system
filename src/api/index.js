@@ -150,3 +150,6 @@ export const getCustomerList = (params)=>ajax.get(base.customerList, {params})
 // 获取业务负责人表
 export const getBusinessPersonnel = (params)=>ajax.get(base.businessPersonnel, {params})
 
+// 获取器材表
+export const getApparatusList = (params)=>ajax.get(base.apparatusList, {params})
+
