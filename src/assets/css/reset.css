@@ -1,0 +1,22 @@
+/* 引入在线的iconfont字体样式 */
+@import url('//at.alicdn.com/t/font_3180255_vvsfl56kyhf.css');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #444;
+}
+
+body{
+    font-family: '微软雅黑', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #f5f5f5;
+}
