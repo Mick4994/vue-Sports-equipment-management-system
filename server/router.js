@@ -337,7 +337,7 @@ router.get("/backend/itemCategory/selectItemCategoryByParentId", (req, res) => {
     获取用户列表
 */
 router.get("/usersList", (req, res) => {
-    const sqlLen = "SELECT customer_name, contact_number, address FROM customer";
+    const sqlLen = "SELECT * FROM customer";
     sqlFn(sqlLen, null, result => {
         if (result.length > 0) {
             res.send({
@@ -618,7 +618,80 @@ router.post('/modifyPwd', (req, res) => {
             msg: '信息错误'
         })
     }
-
-    
 })
+
+/**
+ * 用户删除接口 
+ */
+router.get("/delUser", (req, res) => {
+    console.log(req.query);
+    var customer_id = req.query.customer_id;
+    const sql = "delete from customer where customer_id=?"
+    const arr = [customer_id];
+    sqlFn(sql, arr, result => {
+        if (result.affectedRows > 0) {
+            res.send({
+                status: 200,
+                msg: "删除成功"
+            })
+        } else {
+            res.send({
+                status: 500,
+                msg: "删除失败"
+            })
+        }
+    })
+})
+
+/**
+ * 用户添加接口 
+ */
+router.get("/addUser", (req, res) => {
+    var customer_name = req.query.customer_name;
+    var contact_number = req.query.contact_number;
+    var address = req.query.address;
+    const sql = "INSERT INTO customer (customer_name, contact_number, address) VALUES (?, ?, ?)"
+    const arr = [customer_name, contact_number, address];
+    sqlFn(sql, arr, result => {
+        if (result.affectedRows > 0) {
+            res.send({
+                status: 200,
+                msg: "添加成功"
+            })
+        } else {
+            res.send({
+                status: 500,
+                msg: "添加失败"
+            })
+        }
+    })
+})
+
+
+/**
+ * 用户编辑接口 
+ */
+router.get("/editUser", (req, res) => {
+    var customer_id = req.query.customer_id;
+    var customer_name = req.query.customer_name;
+    var contact_number = req.query.contact_number;
+    var address = req.query.address;
+    // console.log(req.query.custormer_name);
+    const sql = "UPDATE customer set customer_name=?, contact_number=?, address=? where customer_id=?"
+    const arr = [customer_name, contact_number, address, customer_id];
+    sqlFn(sql, arr, result => {
+        if (result.affectedRows > 0) {
+            res.send({
+                status: 200,
+                msg: "编辑成功"
+            })
+        } else {
+            res.send({
+                status: 500,
+                msg: "编辑失败"
+            })
+        }
+    })
+})
+
 module.exports = router

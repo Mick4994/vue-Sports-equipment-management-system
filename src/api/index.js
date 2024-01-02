@@ -153,3 +153,12 @@ export const getBusinessPersonnel = (params)=>ajax.get(base.businessPersonnel, {
 // 获取器材表
 export const getApparatusList = (params)=>ajax.get(base.apparatusList, {params})
 
+// 删除用户
+export const delUser = (params)=>ajax.get(base.delUser, {params})
+
+// 删除用户
+export const addUser = (params)=>ajax.get(base.addUser, {params})
+
+// 删除用户
+export const editUser = (params)=>ajax.get(base.editUser, {params})
+

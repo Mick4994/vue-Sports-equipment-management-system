@@ -16,13 +16,13 @@
         
         <!-- 2、表单 -->
         <div class="myform">
-        <el-form 
+          <el-form 
             :model="goodsForm" 
             :rules="rules" 
             ref="ruleForm" 
             label-width="100px" 
             class="demo-ruleForm"
-        >
+            >
             <!-- <el-form-item label="类名选择" prop="category"> 
                 <el-button type="primary" @click="innerVisible = true">类名选择</el-button>
                 <span>{{ goodsForm.category }}</span>
@@ -83,38 +83,38 @@
             
             <el-form-item label="租赁时间" prop="date">
               <el-col :span="11">
-              <el-form-item prop="lease_date">
-                <el-date-picker 
-                  type="date" 
-                  placeholder="选择起始日期" 
-                  v-model="goodsForm.lease_date"
-                  style="width: 100%;"
-                  
-                >
-                </el-date-picker>
-              </el-form-item>
+                <el-form-item prop="lease_date">
+                  <el-date-picker 
+                    type="date" 
+                    placeholder="选择起始日期" 
+                    v-model="goodsForm.lease_date"
+                    style="width: 100%;"
+                    
+                  >
+                  </el-date-picker>
+                </el-form-item>
               </el-col>
               <el-col class="line" :span="2">-</el-col>
               <el-col :span="11">
-              <el-form-item prop="return_date">
-                <el-date-picker 
-                  type="date" 
-                  placeholder="选择归还日期" 
-                  v-model="goodsForm.return_date"
-                  style="width: 100%;"
-                  
-                >
-                </el-date-picker>
-          </el-form-item>
-          </el-col>
-        </el-form-item> 
+                <el-form-item prop="return_date">
+                  <el-date-picker 
+                    type="date" 
+                    placeholder="选择归还日期" 
+                    v-model="goodsForm.return_date"
+                    style="width: 100%;"
+                    
+                  >
+                  </el-date-picker>
+                </el-form-item>
+              </el-col>
+            </el-form-item> 
 
             <el-form-item label="备注" prop="notes">
-                <el-input v-model="goodsForm.notes"></el-input>
+              <el-input v-model="goodsForm.notes"></el-input>
             </el-form-item>
 
           
-        </el-form>
+          </el-form>
         </div>
 
         <!-- 弹窗底部按钮 -->
