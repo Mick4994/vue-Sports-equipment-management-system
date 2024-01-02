@@ -19,7 +19,7 @@
         @selection-change="handleSelectionChange"
         stripe
         style="width: 100%">
-        <el-table-column type="selection" width="55" :reserve-selection="true"></el-table-column>
+        <!-- <el-table-column type="selection" width="55" :reserve-selection="true"></el-table-column> -->
         <el-table-column prop="order_id" label="订单号" width="100"></el-table-column>
         <el-table-column prop="apparatus_name" label="器材名称" width="100" show-overflow-tooltip></el-table-column>
         <el-table-column prop="customer_name" label="客户名" width="100"></el-table-column>
@@ -36,10 +36,10 @@
           </template>
         </el-table-column>
       </el-table>
-      <div style="margin-top: 20px">
+      <!-- <div style="margin-top: 20px">
         <el-button @click="toggleSelection(tableData)">全选</el-button>
-        <el-button @click="toggleSelection()">反选</el-button>
-      </div>
+        <el-button @click="toggleSelection(tableData)">反选</el-button>
+      </div> -->
     </div>
 
     <!-- 3、分页 -->
@@ -222,6 +222,7 @@ export default {
       })
     },
     handleSelectionChange(val) {
+      console.log(val)
       this.multipleSelection = val;
     },
     //全选和反选（对当前页数据）
