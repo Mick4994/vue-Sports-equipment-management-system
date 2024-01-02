@@ -31,6 +31,7 @@
             <el-form-item label="器材名称" prop="apparatus_name">
                 <!-- <el-input v-model="goodsForm.apparatus_name"></el-input> -->
                 <el-select v-model="goodsForm.apparatus_name" 
+                :disabled = "this.title === '添加记录'?false:true"
                 filterable placeholder="请选择"
                 style="width: 100%;"
                 >
